@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": "7",
+      "name": "Diarymilk1",
+      "price": "2",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "id": "8",
+      "name": "munch",
+      "price": "10",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "name": "Diarymilk2",
+      "price": 500,
+      "id": "9",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Diarymilk",
+      "price": "50",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Diarymilk",
+      "price": 50,
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "id": "51",
+      "name": "cocunut",
+      "price": "60",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "id": "12",
+      "name": "biscuits",
+      "price": "400",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    },
+    {
+      "id": "3",
+      "name": "milk",
+      "price": "40",
+      "img": "https://www.bigbasket.com/media/uploads/p/m/40003735_9-amul-dark-chocolate-55-rich-in-cocoa.jpg"
+    }
+  ]
+}

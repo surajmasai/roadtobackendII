@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #showproducts {
+        display: grid;
+
+        grid-template-columns: auto auto auto auto;
+
+        padding: 40px;
+
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <div>
+        <h1>Add products</h1>
+
+        <input type="number" id="id" placeholder="Id">
+        <input type="text" id="name" placeholder="Name">
+        <input type="number" id="price" placeholder="Price">
+        <input type="text" id="url" placeholder="url">
+
+
+        <button onclick="addProducts()">Add products</button>
+    </div>
+
+
+
+    <div>
+        <h1>deleted products</h1>
+        <input type="number" id="product_id" placeholder="Id" />
+
+        <button onclick="deleteProducts()">delete products</button>
+    </div>
+
+
+    <div>
+        <h1>update products price</h1>
+        <input type="number" id="productid" placeholder="Id" />
+
+        <input type="text" id="Iurl" placeholder="url">
+
+
+        <input type="text" id="uname" placeholder="Name" />
+        <input type="number" id="newprice" placeholder="Price" />
+
+
+
+
+        <button onclick="updateprice()">update products</button>
+    </div>
+
+    <h1>products</h1>
+    <div id="showproducts"></div>
+</body>
+
+</html>
+
+<script>
+
+    var products = document.getElementById("showproducts")
+
+
+    // get
+
+    async function getData() {
+
+        let res = await fetch(`http://localhost:3000/api/products`);
+
+        let data = await res.json();
+
+        showproducts(data)
+
+        // console.log(data)
+    }
+    getData();
+
+    function showproducts(data) {
+
+        data.forEach((el) => {
+            let div = document.createElement("div");
+
+            let img = document.createElement("img")
+            img.src = el.img
+
+            let name = document.createElement("h2")
+            name.innerText = el.name
+
+            let id = document.createElement("p")
+            id.innerText = "ID " + "- " + el.id
+
+
+            let price = document.createElement("p")
+            price.innerText = "price " + "- " + el.price
+
+            div.append(img, name, id, price);
+
+            products.append(div)
+
+        });
+
+    }
+
+
+    //post
+
+    async function addProducts() {
+
+        let data = {
+            id: document.getElementById('id').value,
+            name: document.getElementById('name').value,
+            price: document.getElementById('price').value,
+            img: document.getElementById('url').value
+        };
+        try {
+
+            let response = await fetch('http://localhost:3000/api/products', {
+
+                method: 'POST',
+                body: JSON.stringify(data),
+
+                headers: {
+
+                    "Content-Type": "application/json",
+                },
+            });
+
+            let d = await response.json();
+            console.log(d);
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+
+
+    //delete
+    async function deleteProducts() {
+
+        let id = document.getElementById("product_id").value;
+
+        let response = await fetch(`http://localhost:3000/api/products/${id}`, {
+
+            method: "DELETE",
+            headers: {
+
+                "Content-Type": "application/json",
+            },
+
+        });
+    }
+
+    //put
+    async function updateprice() {
+
+        let id = document.getElementById("productid").value
+
+        // let nprice = document.getElementById("newprice").value
+
+        let data = {
+
+            name: document.getElementById('uname').value,
+
+            price: document.getElementById('newprice').value,
+
+            img: document.getElementById('Iurl').value
+
+
+        };
+
+        try {
+
+            // console.log(data, id)
+
+            var res = await fetch(`http://localhost:3000/api/products/${id}`, {
+
+                method: "PUT",
+
+                body: JSON.stringify(data),
+
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+
+            })
+            let da = await response.json();
+            console.log(da);
+        } catch (e) {
+            console.log(e)
+        }
+
+
+    }
+
+
+
+</script>
